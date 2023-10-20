@@ -64,12 +64,10 @@ class SQLiteStorage(Storage):
 
         results = cursor.fetchall()
 
-        contents = [
+        return [
             Content(uid=row[0], data=json.loads(row[1]), created=bool(row[2]))
             for row in results
         ]
-
-        return contents
 
     def close(self):
         self.conn.close

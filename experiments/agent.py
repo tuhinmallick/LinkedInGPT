@@ -100,8 +100,7 @@ def get_latest_papers(*args, **kwargs) -> List[Paper]:
 def get_a_trending_paper(*args, **kwargs) -> Paper:
     papers = get_latest_papers()
     print(papers)
-    paper = random.choice(papers)
-    return paper
+    return random.choice(papers)
 
 
 # write_linkedin_post(
