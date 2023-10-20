@@ -88,10 +88,7 @@ def get_all_papers(conn: sqlite3.Connection) -> List[Paper]:
 def get_paper_by_uid(conn: sqlite3.Connection, uid: str) -> Paper:
     cur = conn.cursor()
     cur.execute("SELECT * FROM papers WHERE uid=?", (uid,))
-    row = cur.fetchone()
-    if row:
-        return row_to_dict(cur, row)
-    return None
+    return row_to_dict(cur, row) if (row := cur.fetchone()) else None
 
 
 def create_post_table(conn: sqlite3.Connection):
